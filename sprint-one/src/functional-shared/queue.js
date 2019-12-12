@@ -1,8 +1,34 @@
 var Queue = function() {
-  // Hey! Rewrite in the new style. Your code will wind up looking very similar,
-  // but try not not reference your old code in writing the new style.
+  var storage = {};
+  storage.enqueue = queueMethods.enqueue;
+  storage.dequeue = queueMethods.dequeue;
+  storage.size = queueMethods.size;
+  return storage;
 };
 
 var queueMethods = {};
+
+queueMethods.enqueue = function(value) {
+  var len = Object.keys(this).length - 3
+  this[len] = value;
+  console.log(this);
+};
+
+queueMethods.dequeue = function() {
+  var a = this[0];
+  var len = Object.keys(this).length - 3
+  for (let i = 0; i < len-1; i++){
+    this[i] = this[i + 1];
+  }
+  delete this[len-1]
+  console.log(this);
+  return a;
+};
+
+queueMethods.size = function() {
+   return Object.keys(this).length - 3;
+};
+
+
 
 
