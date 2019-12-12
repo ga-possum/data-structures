@@ -1,8 +1,6 @@
 var Queue = function() {
   var storage = {};
-  storage.enqueue = queueMethods.enqueue;
-  storage.dequeue = queueMethods.dequeue;
-  storage.size = queueMethods.size;
+  _.extend(storage,queueMethods)
   return storage;
 };
 

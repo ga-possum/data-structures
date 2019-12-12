@@ -1,8 +1,6 @@
 var Stack = function() {
   var storage = {};
-  storage.push = stackMethods.push;
-  storage.pop = stackMethods.pop;
-  storage.size = stackMethods.size;
+  _.extend(storage,stackMethods)
   return storage;
 };
 
@@ -25,3 +23,4 @@ stackMethods.pop = function() {
 stackMethods.size = function() {
    return Object.keys(this).length - 3;
 };
+
