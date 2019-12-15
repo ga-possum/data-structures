@@ -1,25 +1,26 @@
 class Queue {
   constructor() {
+    this.storage = {};
   }
-  enqueue = function(value) {
-    var len = Object.keys(this).length - 3;
-    this[len] = value;
-    console.log(this);
+
+  enqueue(value) {
+    var len = Object.keys(this.storage).length;
+    this.storage[len] = value;
   };
 
-  dequeue = function() {
-    var a = this[0];
-    var len = Object.keys(this).length - 3;
+  dequeue() {
+    var a = this.storage[0];
+    var len = Object.keys(this.storage).length;
     for (let i = 0; i < len-1; i++){
-      this[i] = this[i + 1];
+      this.storage[i] = this.storage[i + 1];
     }
-    delete this[len-1]
-    console.log(this);
+    delete this.storage[len-1]
+    //console.log(this);
     return a;
   };
 
-  size = function() {
-     return Object.keys(this).length - 3;
+  size() {
+     return Object.keys(this.storage).length;
   };
 
 }
