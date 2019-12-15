@@ -1,6 +1,4 @@
-var Queue = function() {
-  this
-};
+var Queue = function() {this;};
 
 Queue.prototype.enqueue = function(value) {
   var len = Object.keys(this).length
