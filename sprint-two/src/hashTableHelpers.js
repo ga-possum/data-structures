@@ -1,7 +1,7 @@
 /*
- ********** NOTE: **********
- * Do not edit this code unless you see a bug!
- */
+********** NOTE: **********
+* Do not edit this code unless you see a bug!
+*/
 
 
 // This class represents an array with limited functionality and a maximum size.
@@ -15,13 +15,19 @@ var LimitedArray = function(limit) {
   var storage = [];
 
   var limitedArray = {};
-  limitedArray.get = function(index) {
+  limitedArray.get = function(index, k) {
     checkLimit(index);
-    return storage[index];
+    return storage[index][k];
   };
-  limitedArray.set = function(index, value) {
+  limitedArray.set = function(index, value, k) {
     checkLimit(index);
-    storage[index] = value;
+    if (!storage[index]) {
+      storage[index] = {};
+      storage[index][k] = value;
+    } else {
+      storage[index][k] = value;
+    }
+
   };
   limitedArray.each = function(callback) {
     for (var i = 0; i < storage.length; i++) {
