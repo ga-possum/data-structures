@@ -13,16 +13,16 @@ binaryTreeMethods.insert = function(value) {
   if (value < this.value) {
     //left
     if (this.left) {
-      binaryTreeMethods.insert.call(this.left,value)
+      binaryTreeMethods.insert.call(this.left, value);
     } else {
-    this.left = BinarySearchTree(value);
+      this.left = BinarySearchTree(value);
     }
   } else {
     //right
     if (this.right) {
-      binaryTreeMethods.insert.call(this.right,value)
+      binaryTreeMethods.insert.call(this.right, value);
     } else {
-    this.right = BinarySearchTree(value);
+      this.right = BinarySearchTree(value);
     }
   }
 };
@@ -32,10 +32,10 @@ binaryTreeMethods.contains = function(target) {
   var found = false;
   if (this.value === target) {
     found = true;
-  } else if (this.left || this.right){
+  } else if (this.left || this.right) {
     for (var i = 0; i < 2; i++) {
-      if (i === 0) {child = this.left} else {child = this.right}
-      if (!found){
+      if (i === 0) { child = this.left; } else { child = this.right; }
+      if (!found) {
         found = binaryTreeMethods.contains.call(child, target);
       }
     }
@@ -45,15 +45,15 @@ binaryTreeMethods.contains = function(target) {
 
 binaryTreeMethods.depthFirstLog = function(callback) {
   callback(this.value);
-  if (this.left || this.right){
+  if (this.left || this.right) {
     for (var i = 0; i < 2; i++) {
-      if (i === 0) {child = this.left} else {child = this.right}
+      if (i === 0) { child = this.left; } else {child = this.right; }
       if (child) {
         binaryTreeMethods.depthFirstLog.call(child, callback);
       }
     }
   }
-}
+};
 
 
 /*

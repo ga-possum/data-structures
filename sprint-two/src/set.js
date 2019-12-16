@@ -41,7 +41,7 @@ setPrototype.add = function(item) {
 
 setPrototype.contains = function(item) {
   var index = getIndexBelowMaxForKey(item, this._limit);
-  if (this._storage.get(index)) {return true;}
+  if (this._storage.get(index)) { return true; }
   return false;
 };
 

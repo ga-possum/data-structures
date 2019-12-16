@@ -40,10 +40,10 @@ treeMethods.contains = function (target) {
   if (this.value === target) {
     found = true;
   } else if (this.children.length !== 0) {
-    var len = this.children.length
+    var len = this.children.length;
     for (var i = 0; i < this.children.length; i++) {
-      if (!found){
-        var currentChild = this.children[i]
+      if (!found) {
+        var currentChild = this.children[i];
         found = treeMethods.contains.call(currentChild, target);
       }
     }
